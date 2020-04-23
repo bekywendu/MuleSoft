@@ -1,0 +1,178 @@
+#%RAML 1.0
+title: Craft Retail Project
+
+   
+              
+
+/products:
+  description: products fetches list of all product data
+  get:
+     responses:
+      200:
+        body:
+          application/json:
+            example:
+              {message: "Success"}
+      401:
+        body:
+          application/json:
+            example:
+
+   
+      404:
+        body:
+          application/json:
+            example:
+             {message: "Not Found"}
+              
+      500:
+        body:
+          application/json:
+            example:
+              {message: "Server Failure"}                  
+  post:
+    description: create a new product based on request JSON
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             {message : "success"}
+      401:
+        body:
+          application/json:
+            example:  {message : "Un authorized "}
+   
+      404:
+        body:
+          application/json:
+            example:
+             {message: "Not Found"}
+              
+      500:
+        body:
+          application/json:
+            example:
+              {message: "Server Failure"}
+                               
+                  
+  /ProductID:
+    description: fetch a specific product
+    get:
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+      responses:
+            
+           
+    put:
+      description: Updates product data based on request JSON
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+    delete:
+      description: Delete an existing product if it is not associated with a bill
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true 
+         
+/Bills:  
+  description: bills fetches all bill data
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {message : "success"}
+  post:
+    description: bills creates a bill Id. Client has to use this bill Id while adding and removing products
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             {message : "success"}
+
+  /BillsID:
+    description: fetches bill of a particular id
+    get:
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+    put:
+      description: Updates bill data. Client can add or remove products to bill sending a JSON request.
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+    delete:
+      description: Delete bill from the system.
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+
+
+/ProductCatagorty:
+  description: productcatagories fetches list of all productcatagory data
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {message : "success"}
+  post:
+    description: productcatagory Creates a new productcatagory based on request JSON
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+             {message : "success"}
+  
+  /ProductCatagoryID:
+    description: fetch a specific productcatagory
+    get:
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+    put:
+      description: Updates productcatagory data based on request JSON
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+    delete:
+      description: Delete an existing productcatagory
+      queryParameters:
+        ID:
+          type: integer
+          description: Enter product Id as a queryparameter
+          displayName: Product ID
+          required: true
+
+
+          
